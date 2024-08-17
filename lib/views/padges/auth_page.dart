@@ -1,20 +1,22 @@
+import 'package:e_commerce/utilities/enum.dart';
 import 'package:e_commerce/views/widgets/main_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class LoginPage extends StatefulWidget {
- const LoginPage({super.key});
+class AuthPage extends StatefulWidget {
+ const AuthPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AuthPage> createState() => _AuthPageState();
 
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AuthPageState extends State<AuthPage> {
   final _formkey = GlobalKey<FormState>();
   final _emailController= TextEditingController();
   final _passwordController= TextEditingController();
+  var _authType = authFormType.login;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,8 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Login",
+                Text(
+                  _authType == authFormType.login ?"Login": 'Register',
                   style: Theme.of(context).textTheme.headline3,
                 ),
                 const SizedBox(height: 64,),
@@ -59,21 +62,33 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 24,),
                 MainButton(
                     onPressed: (){},
-                    text: 'Login'
+                    text: _authType == authFormType.login ?'Login':'Register',
                 ),
                 const SizedBox(height: 16,),
                 Align(
                   alignment: Alignment.center,
                   child: InkWell(
-                    child:const Text('Don\'t have an account? Register ',
+                    child: Text(
+                      _authType == authFormType.login ?
+                      'Don\'t have an account? Register ':'Have an Account? Login',
                     ),
-                    onTap: () => Navigator.of(context).pushNamed('register'),
+                    onTap: () {
+                     setState(() {
+                       if(_authType==authFormType.login){
+                         _authType= authFormType.register;
+                       }else {
+                         _authType = authFormType.login;
+                       }
+                     });
+                    },
                   ),
                 ),
                 const Spacer(),
-                const Align(
+                 Align(
                   alignment: Alignment.center,
-                  child: Text('Or Login With'),
+                  child: Text(
+                      _authType == authFormType.login ?'Or Login With':'Or Register With',
+                  ),
                 ),
                 const SizedBox(height: 16,),
                 Row(
