@@ -24,17 +24,27 @@ class MyApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(2.0),
             borderSide: const BorderSide(
               color: Colors.grey
-            )
-
+            ),
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(2.0),
               borderSide: const BorderSide(
                   color: Colors.grey
-              )
-
-          )
-        )
+              ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(2.0),
+            borderSide: const BorderSide(
+                color: Colors.red,
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(2.0),
+            borderSide: const BorderSide(
+                color: Colors.red,
+            ),
+          ),
+        ),
       ),
       onGenerateRoute: onGenerate,
       initialRoute: AppRoutes.loginPageRoute,

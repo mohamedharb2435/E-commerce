@@ -8,9 +8,13 @@ Route<dynamic> onGenerate(RouteSettings settings) {
   switch (settings.name) {
 
     case AppRoutes.loginPageRoute:
-      return CupertinoPageRoute(builder: (_)=> const AuthPage(),);
+      return CupertinoPageRoute(builder: (_)=> const AuthPage(),
+      settings: settings,
+      );
     case AppRoutes.landingPageRoute:
     default:
-      return CupertinoPageRoute(builder: (_) => const LandingPage());
+      return CupertinoPageRoute(builder: (_) => const LandingPage(),
+      settings: settings,
+      );
   }
 }
