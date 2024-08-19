@@ -1,4 +1,5 @@
 import 'package:e_commerce/utilities/enum.dart';
+import 'package:e_commerce/utilities/routes.dart';
 import 'package:e_commerce/views/widgets/main_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,7 @@ class _AuthPageState extends State<AuthPage> {
                   MainButton(
                       onPressed: (){
                         if(_formkey.currentState!.validate()){
-                          debugPrint('Authenticated');
+                          Navigator.of(context).pushNamed(AppRoutes.bottomNavBarRoute);
                         }
                       },
                       text: _authType == authFormType.login ?'Login':'Register',
@@ -103,7 +104,7 @@ class _AuthPageState extends State<AuthPage> {
                       },
                     ),
                   ),
-                   SizedBox(height: size.height*(.06),),
+                   SizedBox(height: size.height*(.07),),
                    Align(
                     alignment: Alignment.center,
                     child: Text(
