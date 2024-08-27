@@ -1,9 +1,7 @@
 import 'package:e_commerce/models/product.dart';
 import 'package:e_commerce/utilities/assets.dart';
 import 'package:e_commerce/views/widgets/list_item_home.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
