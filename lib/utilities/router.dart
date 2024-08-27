@@ -1,8 +1,9 @@
 import 'package:e_commerce/utilities/routes.dart';
 import 'package:flutter/cupertino.dart';
-import '../views/padges/bottom_navbar.dart';
-import '../views/padges/landing_page.dart';
-import '../views/padges/auth_page.dart';
+import '../views/pages/auth_page.dart';
+import '../views/pages/bottom_navbar.dart';
+import '../views/pages/landing_page.dart';
+
 
 Route<dynamic> onGenerate(RouteSettings settings) {
   switch (settings.name) {
