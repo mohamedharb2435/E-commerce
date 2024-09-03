@@ -1,7 +1,5 @@
 import 'package:e_commerce/controlers/auth_controller.dart';
-import 'package:e_commerce/services/auth.dart';
 import 'package:e_commerce/utilities/enum.dart';
-import 'package:e_commerce/utilities/routes.dart';
 import 'package:e_commerce/views/widgets/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,9 +29,7 @@ class _AuthPageState extends State<AuthPage> {
     try{
       await model.submit();
       if(!mounted)return;
-      Navigator.of(context).pushNamed(
-        AppRoutes.bottomNavBarRoute
-      );
+      // Navigator.of(context).pushNamed(AppRoutes.bottomNavBarRoute);
     }catch(e){
       showDialog(context: context,
           builder:(context)=>
