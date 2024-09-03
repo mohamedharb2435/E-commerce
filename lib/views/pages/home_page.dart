@@ -1,7 +1,9 @@
+import 'package:e_commerce/controllers/database_controller.dart';
 import 'package:e_commerce/models/product.dart';
 import 'package:e_commerce/utilities/assets.dart';
 import 'package:e_commerce/views/widgets/list_item_home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -49,6 +51,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final database = Provider.of<Database>(context);
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -97,32 +100,71 @@ class HomePage extends StatelessWidget {
                   title: 'Sale',
                   description: 'Super Summer Sale!',
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 SizedBox(
                   height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: dummyProducts.map((e) => ListItemHome(product:e)).toList(),
-                  ),
+                  child: StreamBuilder<List<Product>>(
+                      stream: database.sealsProductsStream(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.active) {
+                          final products = snapshot.data;
+                          if (products == null || products.isEmpty) {
+                            return const Center(
+                              child: Text('No Data Available!'),
+                            );
+                          }
+                          return ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: products.length,
+                            itemBuilder: (_, int index) => ListItemHome(product: products[index]),
+                          );
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }),
                 ),
-                const SizedBox(height: 24,),
+                const SizedBox(
+                  height: 24,
+                ),
                 _buildHeadlineOfList(
                   context,
                   title: 'New',
                   description: 'Super New Sale!',
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 SizedBox(
                   height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: dummyProducts.map((e) => ListItemHome(product:e)).toList(),
-                  ),
+                  child: StreamBuilder<List<Product>>(
+                      stream: database.newProductsStream(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.active) {
+                          final products = snapshot.data;
+                          if (products == null || products.isEmpty) {
+                            return const Center(
+                              child: Text('No Data Available!'),
+                            );
+                          }
+                          return ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: products.length,
+                            itemBuilder: (_, int index) => ListItemHome(product: products[index]),
+                          );
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }),
                 ),
               ],
             ),
           ),
-
         ],
       ),
     );

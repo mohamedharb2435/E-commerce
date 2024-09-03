@@ -1,8 +1,9 @@
-import 'package:e_commerce/controlers/auth_controller.dart';
 import 'package:e_commerce/utilities/enum.dart';
 import 'package:e_commerce/views/widgets/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../controllers/auth_controller.dart';
 
 class AuthPage extends StatefulWidget {
  const AuthPage({super.key});
@@ -13,7 +14,7 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  final _formkey = GlobalKey<FormState>();
+  final _fromkey = GlobalKey<FormState>();
   final _emailController= TextEditingController();
   final _passwordController= TextEditingController();
   final _emailFocusNode=FocusNode();
@@ -61,7 +62,7 @@ class _AuthPageState extends State<AuthPage> {
                 padding: const EdgeInsets.symmetric(
                     horizontal: 32, vertical: 64),
                 child: Form(
-                  key: _formkey,
+                  key: _fromkey,
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,7 +146,7 @@ class _AuthPageState extends State<AuthPage> {
                                   : 'Have an Account? Login',
                             ),
                             onTap: () {
-                              _formkey.currentState!.reset();
+                              _fromkey.currentState!.reset();
                               model.toggleFormType();
                             },
                           ),

@@ -1,9 +1,10 @@
-import 'package:e_commerce/controlers/auth_controller.dart';
+import 'package:e_commerce/controllers/database_controller.dart';
 import 'package:e_commerce/services/auth.dart';
 import 'package:e_commerce/views/pages/bottom_navbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../controllers/auth_controller.dart';
 import 'auth_page.dart';
 import 'home_page.dart';
 
@@ -24,7 +25,10 @@ class LandingPage extends StatelessWidget {
               child: const AuthPage(),
             );
           } else {
-            return const BottomNavBar();
+            return  Provider<Database>(
+              create: (_)=>FirestoreDatabase(user.uid),
+                child: const BottomNavBar()
+            );
           }
         } else {
           return const Scaffold(

@@ -1,7 +1,7 @@
 import 'package:e_commerce/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../controlers/auth_controller.dart';
+import '../../controllers/auth_controller.dart';
 import '../widgets/main_button.dart';
 
 class ProfilePage extends StatelessWidget {
