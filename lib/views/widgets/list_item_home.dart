@@ -52,7 +52,7 @@ class ListItemHome extends StatelessWidget {
                       child: Center(
                         child: Text(
                           isNew ? 'NEW' : '${product.discountValue}%',
-                          style: Theme.of(context).textTheme.caption!.copyWith(
+                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Colors.white,
                           ),
                         ),
@@ -65,7 +65,7 @@ class ListItemHome extends StatelessWidget {
           ),
           Positioned(
             left: size.width * 0.38,
-            bottom: size.height * 0.12,
+            bottom: size.height * 0.15  ,
             child: Container(
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
@@ -108,19 +108,25 @@ class ListItemHome extends StatelessWidget {
                       direction: Axis.horizontal,
                     ),
                     const SizedBox(width: 4.0),
+                    Text('(10)',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Colors.grey,
+                        ),
+                    ),
                   ],
+
                 ),
                 const SizedBox(height: 8.0),
                 Text(
                   product.category,
-                  style: Theme.of(context).textTheme.caption!.copyWith(
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     color: Colors.grey,
                   ),
                 ),
                 const SizedBox(height: 6.0),
                 Text(
                   product.title,
-                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -128,7 +134,7 @@ class ListItemHome extends StatelessWidget {
                 isNew
                     ? Text(
                   '${product.price}\$',
-                  style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: Colors.grey,
                   ),
                 )
