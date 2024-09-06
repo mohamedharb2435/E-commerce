@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
               onTap: onTap,
               child: Text(
                 'View All ',
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
           ],
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
           description,
           style: Theme.of(context)
               .textTheme
-              .subtitle1!
+              .titleMedium!
               .copyWith(color: Colors.grey),
         ),
       ],
@@ -119,7 +119,8 @@ class HomePage extends StatelessWidget {
                           return ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
-                            itemBuilder: (_, int index) => ListItemHome(product: products[index]),
+                            itemBuilder: (_, int index) =>
+                                ListItemHome(product: products[index]),
                           );
                         }
                         return const Center(
@@ -154,7 +155,8 @@ class HomePage extends StatelessWidget {
                           return ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
-                            itemBuilder: (_, int index) => ListItemHome(product: products[index]),
+                            itemBuilder: (_, int index) =>
+                                ListItemHome(product: products[index]),
                           );
                         }
                         return const Center(

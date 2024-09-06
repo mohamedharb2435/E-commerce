@@ -16,7 +16,9 @@ class MainButton extends StatelessWidget {
              backgroundColor: Theme.of(context).primaryColor,
            ) ,
           child: Text(text,
-          style:Theme.of(context).textTheme.button,
+          style:Theme.of(context).textTheme.labelLarge!.copyWith(
+            color: Colors.white,
+          ),
           ),
 
       ),
