@@ -1,5 +1,7 @@
+import 'package:e_commerce/utilities/assets.dart';
 import 'package:e_commerce/utilities/enum.dart';
 import 'package:e_commerce/views/widgets/main_button.dart';
+import 'package:e_commerce/views/widgets/social_media_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -164,24 +166,14 @@ class _AuthPageState extends State<AuthPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                color: Colors.white,
-                              ),
-                              child: const Icon(Icons.add),
+                            SocialMediaButton(
+                              iconName: AppAssets.googleIcon,
+                              onPress: () {},
                             ),
-                            const SizedBox(width: 16,),
-                            Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                color: Colors.white,
-                              ),
-                              child: const Icon(Icons.add),
+                            const SizedBox(width:16 ,),
+                            SocialMediaButton(
+                              iconName: AppAssets.facebookIcon,
+                              onPress: () {},
                             ),
                           ],
                         )

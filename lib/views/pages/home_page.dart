@@ -104,7 +104,7 @@ class HomePage extends StatelessWidget {
                   height: 8,
                 ),
                 SizedBox(
-                  height: 300,
+                  height: 320,
                   child: StreamBuilder<List<Product>>(
                       stream: database.sealsProductsStream(),
                       builder: (context, snapshot) {
@@ -120,7 +120,7 @@ class HomePage extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
                             itemBuilder: (_, int index) =>
-                                ListItemHome(product: products[index]),
+                                ListItemHome(product: products[index] ,isNew: true,),
                           );
                         }
                         return const Center(
@@ -140,7 +140,7 @@ class HomePage extends StatelessWidget {
                   height: 8,
                 ),
                 SizedBox(
-                  height: 300,
+                  height: 320,
                   child: StreamBuilder<List<Product>>(
                       stream: database.newProductsStream(),
                       builder: (context, snapshot) {
@@ -156,7 +156,7 @@ class HomePage extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
                             itemBuilder: (_, int index) =>
-                                ListItemHome(product: products[index]),
+                                ListItemHome(product: products[index] ,isNew: true,),
                           );
                         }
                         return const Center(
