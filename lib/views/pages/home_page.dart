@@ -119,8 +119,10 @@ class HomePage extends StatelessWidget {
                           return ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
-                            itemBuilder: (_, int index) =>
-                                ListItemHome(product: products[index] ,isNew: true,),
+                            itemBuilder: (_, int index) => ListItemHome(
+                              product: products[index],
+                              isNew: true,
+                            ),
                           );
                         }
                         return const Center(
@@ -155,8 +157,10 @@ class HomePage extends StatelessWidget {
                           return ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
-                            itemBuilder: (_, int index) =>
-                                ListItemHome(product: products[index] ,isNew: true,),
+                            itemBuilder: (_, int index) => ListItemHome(
+                              product: products[index],
+                              isNew: true,
+                            ),
                           );
                         }
                         return const Center(

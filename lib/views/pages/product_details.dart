@@ -135,6 +135,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                  const  Text(
                     'this is dummy description for this product! I think we well add  it in the future! I need  to add more lines , so I add these words just to have more than two lines   ',
                   ),
+                  const SizedBox(height: 24,),
                   MainButton(
                       onPressed: (){},
                       text:'Add to cart',
