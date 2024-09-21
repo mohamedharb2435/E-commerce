@@ -7,6 +7,7 @@ import '../models/product.dart';
 abstract class Database {
   Stream<List<Product>> sealsProductsStream();
   Stream<List<Product>> newProductsStream();
+  Stream<List<AddToCartModel>> myProductsCar();
   Future<void> setUserData(UserData userData);
   Future<void> addToCart(AddToCartModel addToCartModel);
 }
@@ -39,5 +40,12 @@ class FirestoreDatabase implements Database {
       await _services.setData(
         path: ApiPath.addToCart(uid, addToCartModel.id),
         data: addToCartModel.toMap(),
+      );
+
+  @override
+  Stream<List<AddToCartModel>> myProductsCar() => _services.collectionsStream(
+        path: ApiPath.myProductsCart(uid),
+        builder: (data, documentId) =>
+            AddToCartModel.fromMap(data!, documentId),
       );
 }
